@@ -1,13 +1,33 @@
-import Counter from "./components/counter"
-import "./index.scss"
+import { Link, Route, Routes } from "react-router-dom";
+import "./styles/index.scss";
+import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
+import { MainPageAsync } from "./pages/MainPage/MainPage.async";
+import { Suspense, useContext } from "react";
+import { ThemeContext } from "./theme/ThemeContext";
+import { useTheme } from "./theme/useTheme";
+
+export enum Theme {
+  LIGHT = 'light',
+  DARK = 'dark'
+}
 
 const App = () => {
+  const {theme, toggleTheme} = useTheme()
+
   return (
-    <div className="app">
-      dededede
-      <Counter />
+    <div className={`app ${theme}`}>
+      <button onClick={toggleTheme}>TOGGLE</button>
+      <Link to={"/"}>Main</Link>
+      <Link to={"/about"}>About</Link>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path={"/about"} element={<AboutPageAsync />} />
+          <Route path={"/"} element={<MainPageAsync />} />
+        </Routes>
+      </Suspense>
+      {/* <Counter /> */}
     </div>
-  )
-}
+  );
+};
 
 export default App;
