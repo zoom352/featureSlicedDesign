@@ -6,6 +6,7 @@ import { useTheme } from "app/providers/ThemeProvider";
 import { AboutPage } from "pages/AboutPage";
 import { MainPage } from "pages/MainPage";
 import { AppRouter } from "./providers/router";
+import { Navbar } from "widgets/Navbar";
 
 export enum Theme {
   LIGHT = 'light',
@@ -17,9 +18,8 @@ const App = () => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
+      <Navbar />
       <button onClick={toggleTheme}>TOGGLE</button>
-      <Link to={"/"}>Main</Link>
-      <Link to={"/about"}>About</Link>
       <AppRouter />
     </div>
   );
