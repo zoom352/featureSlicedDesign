@@ -7,6 +7,7 @@ import { AboutPage } from "pages/AboutPage";
 import { MainPage } from "pages/MainPage";
 import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 
 export enum Theme {
   LIGHT = 'light',
@@ -19,7 +20,8 @@ const App = () => {
   return (
     <div className={classNames('app', {}, [theme])}>
       <Navbar />
-      <button onClick={toggleTheme}>TOGGLE</button>
+      {/* <ThemeSwitcher /> */}
+      {/* <button onClick={toggleTheme}>TOGGLE</button> */}
       <AppRouter />
     </div>
   );
