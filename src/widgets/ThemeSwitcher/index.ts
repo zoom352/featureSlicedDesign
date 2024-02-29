@@ -1,4 +1,4 @@
-import {ThemeSwitcher} from './ui/themeSwitcher'
+import { ThemeSwitcher } from './ui/ThemeSwitcher'
 
 export {
   ThemeSwitcher
