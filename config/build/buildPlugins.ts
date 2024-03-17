@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import { BuildOptions } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInstance[] {
   const { paths } = options
@@ -14,6 +15,9 @@ export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInsta
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false
     })
   ]
 }

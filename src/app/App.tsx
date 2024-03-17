@@ -4,6 +4,7 @@ import { useTheme } from 'app/providers/ThemeProvider'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/SideBar/ui'
+import { useEffect } from 'react'
 
 export enum Theme {
   LIGHT = 'light',
@@ -12,6 +13,10 @@ export enum Theme {
 
 const App = () => {
   const { theme } = useTheme()
+
+  useEffect(() => {
+    throw new Error()
+  }, [])
 
   return (
     <div className={classNames('app', {}, [theme])}>
