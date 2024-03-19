@@ -14,10 +14,6 @@ export enum Theme {
 const App = () => {
   const { theme } = useTheme()
 
-  useEffect(() => {
-    throw new Error()
-  }, [])
-
   return (
     <div className={classNames('app', {}, [theme])}>
       <Navbar />
